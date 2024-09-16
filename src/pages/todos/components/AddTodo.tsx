@@ -1,7 +1,7 @@
 // src/components/AddTodo.tsx
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "./todoSlice";
+import { addTodo } from "../../../redux/slices/todoSlice";
 
 const AddTodo: React.FC = () => {
   const [text, setText] = useState("");

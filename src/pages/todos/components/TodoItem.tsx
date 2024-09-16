@@ -1,8 +1,8 @@
-// src/components/TodoItem.tsx
+import { ArrowUUpLeft, Check } from "@phosphor-icons/react";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { removeTodo, toggleTodo } from "./todoSlice";
-import { ArrowUUpLeft, Check, TrashSimple } from "@phosphor-icons/react";
+import { toggleTodo } from "../../../redux/slices/todoSlice";
+import BotonEliminar from "./BotonEliminar";
 
 interface TodoItemProps {
   id: number;
@@ -12,10 +12,6 @@ interface TodoItemProps {
 
 const TodoItem: React.FC<TodoItemProps> = ({ id, text, completed }) => {
   const dispatch = useDispatch();
-
-  const handleRemoveItem = () => {
-    dispatch(removeTodo(id));
-  };
 
   const handleComplete = () => {
     dispatch(toggleTodo(id));
@@ -36,12 +32,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, completed }) => {
         >
           {!completed ? <Check size={23} /> : <ArrowUUpLeft size={23} />}
         </button>
-        <button
-          onClick={handleRemoveItem}
-          className="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:bg-red"
-        >
-          <TrashSimple size={23} />
-        </button>
+        <BotonEliminar id={id} />
       </div>
     </div>
   );
