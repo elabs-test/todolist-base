@@ -2,7 +2,6 @@ import { ArrowUUpLeft, Check } from "@phosphor-icons/react";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { toggleTodo } from "../../../redux/slices/todoSlice";
-import BotonEliminar from "./BotonEliminar";
 
 interface TodoItemProps {
   id: number;
@@ -32,7 +31,6 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, completed }) => {
         >
           {!completed ? <Check size={23} /> : <ArrowUUpLeft size={23} />}
         </button>
-        <BotonEliminar id={id} />
       </div>
     </div>
   );
